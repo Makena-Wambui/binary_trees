@@ -36,6 +36,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 	/* Do the same to the right child. */
 	height_right = tree->right ? (int)binary_tree_height(tree->right) : -1;
 
+	/* Difference btwn left and right. */
 	return (height_left - height_right);
 }
 
