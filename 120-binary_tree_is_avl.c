@@ -47,7 +47,7 @@ int avl(const binary_tree_t *tree, int minimum, int maximum)
 	 * is within the range defined by minimum and maximum.
 	 * If it's not, it returns 0.
 	 */
-	if (tree->n < min || tree->n > max)
+	if (tree->n < minimum || tree->n > maximum)
 		return (0);
 	/**
 	 * It calculates the height of the left and right subtrees of the
@@ -63,8 +63,8 @@ int avl(const binary_tree_t *tree, int minimum, int maximum)
 	if (abs(path_left - path_right) > 1)
 		return (0);
 
-	return (avl(tree->left, min, tree->n - 1) &&
-		avl(tree->right, tree->n + 1, max));
+	return (avl(tree->left, minimum, tree->n - 1) &&
+		avl(tree->right, tree->n + 1, maximum));
 }
 
 /**
