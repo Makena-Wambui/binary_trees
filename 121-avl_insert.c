@@ -72,13 +72,12 @@ avl_t *avl_insert(avl_t **tree, int value)
 
 	/* calculates the balance factor of the tree. */
 	balance = binary_tree_balance(*tree);
-
+	/* perform a left rotation. */
+	if (balance < -1 && value > new->right->n)
+		return (binary_tree_rotate_left(new));
 	/* perform a right rotation.*/
 	if (balance > 1 && value < new->left->n)
 		return (binary_tree_rotate_right(new));
-	/* perform a left rotation.*/
-	if (balance < -1 && value > new->right->n)
-		return (binary_tree_rotate_left(new));
 	/**
 	 * perform a left rotation on the left child
 	 * followed by a right rotation on the current node.
